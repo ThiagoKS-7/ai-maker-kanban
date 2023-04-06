@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark-mode body {
+.theme-button {
+    @apply w-[30px] mx-[2em];
+}
+body {
     @apply bg-slate-800 text-white;
+}
+
+.dark-mode body {
+    @apply bg-slate-950 text-white;
+}
+
+.logo-container {
+    @apply relative;
+}
+.logo-container:hover {
+    @apply relative  animate-none;
+}
+.main-logo {
+    @apply animate-slow_pulse cursor-default;
+    filter: drop-shadow(0 0 2em #252863aa);
+}
+.main-logo:hover {
+    @apply animate-none cursor-pointer;
+    filter: drop-shadow(0 0 2em #646cffaa);
 }

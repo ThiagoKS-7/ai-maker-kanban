@@ -30,6 +30,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    "@nuxtjs/color-mode",
+    "@nuxtjs/axios"
   ],
   axios: {
     retry: { retries: 3 },
