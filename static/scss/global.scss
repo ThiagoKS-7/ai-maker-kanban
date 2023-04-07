@@ -14,13 +14,13 @@
             @apply relative  animate-none;
         }
     }
-    .main-logo {
-        @apply animate-slow_pulse cursor-default;
-        filter: drop-shadow(0 0 2em #252863aa);
-        &:hover {
-            @apply animate-none cursor-pointer;
-            filter: drop-shadow(0 0 2em #646cffaa);
-        }
+}
+.main-logo {
+    @apply animate-slow_pulse cursor-default;
+    filter: drop-shadow(0 0 2em #252863aa);
+    &:hover {
+        @apply animate-none cursor-pointer;
+        filter: drop-shadow(0 0 2em #646cffaa);
     }
 }
 
