@@ -8,58 +8,67 @@ const store = useKanbanStore()
       <h1 class="title my-9 font-mono">
        AI Dashboard
     </h1>
-    <div class="flex">
-      <div class="col-3">
-        <h3 class="tag bg-red-500">On training</h3>
-        <draggable class="list-group br-white" :list="store.kList.trainTable" v-bind="dragOptions" group="people">
-          <div
+    <div class="flex justify-center">
+      <CardList 
+        title="On training"
+        tagClass="tag bg-red-500" 
+        dragbClass="list-group br-white bl-white" 
+        :list="store.kList.trainTable" 
+        :dragOptions="dragOptions"
+      >
+        <div
             class="list-group-item"
             v-for="(element, index) in store.kList.trainTable"
             :key="element.name"
           >
             {{ element.name }}
           </div>
-        </draggable>
-      </div>
-
-      <div class="col-3">
-        <h3 class="tag bg-orange-500">Testables</h3>
-        <draggable class="list-group br-white" :list="store.kList.testTable" v-bind="dragOptions" group="people">
-          <div
+      </CardList>
+      <CardList 
+        title="Testables"
+        tagClass="tag bg-orange-500" 
+        dragbClass="list-group br-white" 
+        :list="store.kList.testTable" 
+        :dragOptions="dragOptions"
+      >
+        <div
             class="list-group-item"
             v-for="(element, index) in store.kList.testTable"
             :key="element.name"
           >
             {{ element.name }}
           </div>
-        </draggable>
-      </div>
-
-      <div class="col-3">
-        <h3 class="tag bg-green-500">Deployables</h3>
-        <draggable class="list-group br-white" :list="store.kList.useTable" v-bind="dragOptions" group="people">
-          <div
+      </CardList>
+      <CardList 
+        title="Deployables"
+        tagClass="tag bg-green-500" 
+        dragbClass="list-group br-white" 
+        :list="store.kList.useTable" 
+        :dragOptions="dragOptions"
+      >
+        <div
             class="list-group-item"
             v-for="(element, index) in store.kList.useTable"
             :key="element.name"
           >
             {{ element.name }}
           </div>
-        </draggable>
-      </div>
-
-      <div class="col-3">
-        <h3 class="tag bg-violet-500">Downloadables</h3>
-        <draggable class="list-group" :list="store.kList.downloadTable" v-bind="dragOptions" group="people">
-          <div
+      </CardList>
+      <CardList 
+        title="Available for download"
+        tagClass="tag bg-violet-500" 
+        dragbClass="list-group br-white rounded" 
+        :list="store.kList.downloadTable" 
+        :dragOptions="dragOptions"
+      >
+        <div
             class="list-group-item"
-            v-for="(element, index) in store.kList.downloadTable"
+            v-for="(element, index) in store.kList.dwonloadTable"
             :key="element.name"
           >
-            {{ element.name }} {{ index }}
+            {{ element.name }}
           </div>
-        </draggable>
-      </div>
+      </CardList>
     </div>
   </div>
 </template>
