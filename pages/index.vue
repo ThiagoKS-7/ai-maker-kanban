@@ -1,16 +1,21 @@
 <template>
-  <div>
-      <ThemeSwitch/>
-      <h1 class="text-3xl font-bold underline">
-      Hello world!
+  <div class="main-wrapper">
+      <ThemeSwitch class="absolute top-5 right-5"/>
+      <div class="logo-container" @click="$router.push('/dashboard')">
+        <img src="~/static/assets/svg/ai.svg" alt="ai-maker logo" class="main-logo"/>
+      </div>
+      <h1 class="title">
+        AI Maker
     </h1>
   </div>
 </template>
 
 <script>
-import ThemeSwitch from '../components/ThemeSwitch.vue';
 
 export default {
     name: "IndexPage"
 }
 </script>
+<style>
+@import '@/static/scss/global.scss';
+</style>

@@ -20,6 +20,10 @@ export default {
   css: [
     '@/static/css/main.css',
   ],
+  scss: [
+    '@/static/scss/global.scss',
+    '@/static/scss/varibles.scss',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -30,6 +34,11 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    "@nuxtjs/color-mode",
+    "@nuxtjs/axios",
+    '@nuxtjs/composition-api/module',
+    '@pinia/nuxt',
+    '@nuxtjs/style-resources',
   ],
   axios: {
     retry: { retries: 3 },
@@ -73,13 +82,30 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@pinia/nuxt',
   ],
+  pinia: {
+    autoImports: [
+      // automatically imports `defineStore`
+      'defineStore', // import { defineStore } from 'pinia'
+      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+    ],
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    loaders: {
+      sass: {
+        implementation: require('sass'),
+      },
+      scss: {
+        implementation: require('sass'),
+      },
+    },
     postcss: {
       postcssOptions: {
         plugins: {
+          'tailwindcss/nesting': 'postcss-nesting',
           tailwindcss: {},
           autoprefixer: {},
         },
