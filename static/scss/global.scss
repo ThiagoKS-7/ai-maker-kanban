@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.title {
+    @apply text-4xl mt-5 font-bold  font-serif;
+}
+
+.main-wrapper {
+    @apply flex mt-9 w-[100%] flex-col items-center;
+    .logo-container {
+        @apply relative;
+        &:hover {
+            @apply relative  animate-none;
+        }
+    }
+    .main-logo {
+        @apply animate-slow_pulse cursor-default;
+        filter: drop-shadow(0 0 2em #252863aa);
+        &:hover {
+            @apply animate-none cursor-pointer;
+            filter: drop-shadow(0 0 2em #646cffaa);
+        }
+    }
+}
+
+
+.dashboard-wrapper {
+    @apply flex py-9 w-[100%] flex-col items-center;
+    .dash-title {
+        @apply text-4xl mt-5 font-bold  font-serif;
+    }
+    .tag {
+        @apply w-fit px-2 py-2 rounded-tl-md rounded-tr-md;
+    }
+    .list-group {
+        height: 400px !important;
+        overflow-y: scroll;
+        height: fit-content;
+        width: 20em;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .br-white {
+        border-right: 1px solid #ccc;
+    }
+    
+    .list-group-item {
+        background-color:  rgb(33, 25, 78);
+        @apply border-none w-[10em] text-center px-9 py-2 my-[1px] cursor-move;
+        i {
+            cursor: pointer;
+        }
+    }
+    .flip-list-move {
+        transition: transform 0.5s;
+    }
+    .no-move {
+        transition: transform 0s;
+    }
+    .ghost {
+        opacity: 0.5;
+        background: #B3D9EB;
+        color: black;
+    }
+}
