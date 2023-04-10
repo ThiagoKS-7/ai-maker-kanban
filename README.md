@@ -1,4 +1,4 @@
-# AI Maker -kanban-dashboard
+# AI Maker - kanban
 
 ## Build Setup
 
