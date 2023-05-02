@@ -7,7 +7,7 @@ const store = useKanbanStore()
       <ThemeSwitch class="absolute top-5 right-5"/>
       <h1 class="title my-9 font-mono">
        AI Dashboard
-    </h1>
+      </h1>
     <div class="flex justify-center">
       <CardList 
         title="On training"
@@ -15,11 +15,12 @@ const store = useKanbanStore()
         dragbClass="list-group br-white bl-white" 
         :list="store.kList.trainTable" 
         :dragOptions="dragOptions"
+        :onAdd="() =>store.addCard(store.kList.trainTable, {name: 'teste1'})"
       >
         <div
             class="list-group-item"
             v-for="(element, index) in store.kList.trainTable"
-            :key="element.name"
+            :key="element.id"
           >
             {{ element.name }}
           </div>
@@ -30,11 +31,12 @@ const store = useKanbanStore()
         dragbClass="list-group br-white" 
         :list="store.kList.testTable" 
         :dragOptions="dragOptions"
+        :onAdd="() =>store.addCard(store.kList.testTable, {name: 'teste2'})"
       >
         <div
             class="list-group-item"
             v-for="(element, index) in store.kList.testTable"
-            :key="element.name"
+            :key="element.id"
           >
             {{ element.name }}
           </div>
@@ -45,11 +47,12 @@ const store = useKanbanStore()
         dragbClass="list-group br-white" 
         :list="store.kList.useTable" 
         :dragOptions="dragOptions"
+        :onAdd="() =>store.addCard(store.kList.useTable, {name: 'teste3'})"
       >
         <div
             class="list-group-item"
             v-for="(element, index) in store.kList.useTable"
-            :key="element.name"
+            :key="element.id"
           >
             {{ element.name }}
           </div>
@@ -60,11 +63,12 @@ const store = useKanbanStore()
         dragbClass="list-group br-white rounded" 
         :list="store.kList.downloadTable" 
         :dragOptions="dragOptions"
+        :onAdd="() =>store.addCard(store.kList.downloadTable, {name: 'teste4'})"
       >
         <div
             class="list-group-item"
-            v-for="(element, index) in store.kList.dwonloadTable"
-            :key="element.name"
+            v-for="(element, index) in store.kList.downloadTable"
+            :key="element.id"
           >
             {{ element.name }}
           </div>
@@ -75,6 +79,7 @@ const store = useKanbanStore()
   
 <script>
 import draggable from "vuedraggable";
+import { useKanbanStore } from "@/store/kanbanStore"
 export default {
   name: "DashboardPage",
   order: 7,
@@ -95,7 +100,7 @@ export default {
         ghostClass: "ghost"
       };
     }
-  }
+  },
 };
 </script>
 
