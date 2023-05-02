@@ -14,7 +14,7 @@
     "@pinia/nuxt": "^0.2.1",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
-    "pinia": "^2.0.33",
+    "pinia": "^2.0.35",
     "vue": "^2.7.10",
     "vue-demi": "^0.13.11",
     "vue-server-renderer": "^2.7.10",
