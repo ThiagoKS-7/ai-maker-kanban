@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.theme-button {
+    @apply w-[30px] mx-[2em];
+}
+body {
+    @apply bg-slate-800 text-white;
+}
+
+.dark-mode body {
+    @apply bg-slate-950 text-white;
+}
+
 .title {
     @apply text-4xl mt-5 font-bold  font-serif;
 }
