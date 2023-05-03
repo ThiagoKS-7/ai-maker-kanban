@@ -27,9 +27,10 @@ const store = useKanbanStore()
           </div>
         </CardList>
         <ModalAdd :showModal="showModalTraining">
-          <div>
+          <div class="flex flex-col">
             <button @click="()=>showModalTraining = false">close</button>
-            teste
+            <input class="bg-[transparent] w-[fit-content] mx-[0.5em]" placeholder="Digite um nome:" v-model="cardName"/>
+
             <button @click="addCardTraining(store)">addCard</button>
           </div>
         </ModalAdd>
@@ -101,6 +102,7 @@ export default {
     return {
       drag: false,
       showModalTraining: false,
+      cardName: "",
     };
   },
   computed: {
@@ -115,8 +117,10 @@ export default {
   },
   methods: {
     addCardTraining(store) {
-      store.addCard(store.kList.trainTable, {name: 'teste1'});
-      this.showModalTraining=false;
+      if (this.cardName !== "") {
+        store.addCard(store.kList.trainTable, {name: this.cardName});
+        this.showModalTraining=false;
+      }
     },
   }
 };

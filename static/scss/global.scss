@@ -79,7 +79,7 @@ body {
     .modal-add {
         background-color:  rgb(33, 25, 78);
         animation: modal-fade 1s ease-in-out;
-        @apply border-none absolute bottom-0 rounded-[0.5em] w-[90%] text-center p-[2em] mx-[1em];
+        @apply border-none absolute bottom-0 rounded-[0.5em] w-[90%] text-center  mx-[1em];
         i {
             cursor: pointer;
         }
@@ -101,9 +101,11 @@ body {
     0% {
       opacity: 0;
       transform: scaleY(0);
+      transform: translateY(2vh);
     }
     100% {
       opacity: 1;
       transform: scaleY(1);
+      transform: translateY(0);
     }
 }
