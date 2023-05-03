@@ -9,22 +9,31 @@ const store = useKanbanStore()
        AI Dashboard
       </h1>
     <div class="flex justify-center">
-      <CardList 
-        title="On training"
-        tagClass="tag bg-red-500" 
-        dragbClass="list-group br-white bl-white" 
-        :list="store.kList.trainTable" 
-        :dragOptions="dragOptions"
-        :onAdd="() =>store.addCard(store.kList.trainTable, {name: 'teste1'})"
-      >
-        <div
-            class="list-group-item"
-            v-for="(element, index) in store.kList.trainTable"
-            :key="element.id"
-          >
-            {{ element.name }}
+      <div class="relative">
+        <CardList 
+          title="On training"
+          tagClass="tag bg-red-500" 
+          dragbClass="list-group br-white bl-white" 
+          :list="store.kList.trainTable" 
+          :dragOptions="dragOptions"
+          :onAdd="() =>showModalTraining = true"
+        >
+          <div
+              class="list-group-item"
+              v-for="(element, index) in store.kList.trainTable"
+              :key="element.id"
+            >
+              {{ element.name }}
           </div>
-      </CardList>
+        </CardList>
+        <ModalAdd :showModal="showModalTraining">
+          <div>
+            <button @click="()=>showModalTraining = false">close</button>
+            teste
+            <button @click="addCardTraining(store)">addCard</button>
+          </div>
+        </ModalAdd>
+      </div>
       <CardList 
         title="Testables"
         tagClass="tag bg-orange-500" 
@@ -80,15 +89,18 @@ const store = useKanbanStore()
 <script>
 import draggable from "vuedraggable";
 import { useKanbanStore } from "@/store/kanbanStore"
+import ModalAdd from "@/components/AddModal"
 export default {
   name: "DashboardPage",
   order: 7,
   components: {
-    draggable
+    draggable,
+    ModalAdd,
   },
   data() {
     return {
-      drag: false
+      drag: false,
+      showModalTraining: false,
     };
   },
   computed: {
@@ -101,6 +113,12 @@ export default {
       };
     }
   },
+  methods: {
+    addCardTraining(store) {
+      store.addCard(store.kList.trainTable, {name: 'teste1'});
+      this.showModalTraining=false;
+    },
+  }
 };
 </script>
 
