@@ -45,14 +45,7 @@ body {
         @apply w-fit px-2 py-2 rounded-tl-md rounded-tr-md;
     }
     .list-group {
-        height: 360px !important;
-        overflow-y: scroll;
-        height: fit-content;
-        width: 20em;
-        padding: 10px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @apply overflow-y-scroll flex flex-col h-[360px] items-center w-[20em] px-[10px];
     }
     .add-button {
         @apply w-[100%] text-center;
@@ -73,7 +66,19 @@ body {
         background-color:  rgb(33, 25, 78);
         @apply border-none w-[10em] text-center px-9 py-2 my-[1px] cursor-move;
         i {
-            cursor: pointer;
+            @apply cursor-pointer;
+        }
+    }
+    .modal-close {
+        @apply cursor-default opacity-70 h-[1.5em];
+        &:hover {
+            @apply cursor-pointer opacity-100;
+        }
+    }
+    .modal-button {
+        @apply cursor-default text-[12px] p-[7px] rounded-[3px] bg-cyan-600 opacity-75;
+        &:hover {
+            @apply cursor-pointer text-[12px] p-[7px] rounded-[3px] bg-cyan-800 opacity-100;
         }
     }
     .modal-add {
@@ -81,7 +86,7 @@ body {
         animation: modal-fade 1s ease-in-out;
         @apply border-none absolute bottom-0 rounded-[0.5em] w-[90%] text-center  mx-[1em];
         i {
-            cursor: pointer;
+            @apply cursor-pointer;
         }
     }
     .flip-list-move {
@@ -91,9 +96,7 @@ body {
         transition: transform 0s;
     }
     .ghost {
-        opacity: 0.5;
-        background: #B3D9EB;
-        color: black;
+        @apply opacity-50 bg-[#B3D9EB] text-[black];
     }
 
 }
