@@ -4,13 +4,14 @@
             <div class="flex flex-col">
                 <textarea 
                     class="bg-[transparent] outline-none w-[96%] mt-[1em] ml-[0.5em]" 
-                    placeholder="Digite um nome:" 
+                    style="resize: none;"
+                    placeholder="Type a name:" 
                     :value="value"
                     @input=" $emit('input', $event.target.value)"
                     @change="$emit('change')"
                 />
                 <div class="flex items-center p-[7px]">
-                <button class="modal-button mr-4" @click="onAdd()">Add card</button>
+                <button class="modal-button mr-4" @click="onAdd()">Add Card</button>
                 <img  class="modal-close" src="~/static/assets/svg/close.svg" @click="onClose"/> 
                 </div>
             </div>

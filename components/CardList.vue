@@ -3,8 +3,12 @@
         <no-ssr>
             <h3 :class="tagClass">{{ title }}</h3>
             <div class="flex flex-col items-center">
-                <draggable :class="dragbClass" :list="list" v-bind="dragOptions">
-                    <slot/>
+                <draggable :class="dragbClass" :list="list" v-bind="dragOptions" @change="$emit('change')">
+                    <ListItem         
+                        v-for="element in list"
+                        :key="element.id"
+                        :element="element"
+                    />
                 </draggable>
                 <span :class="buttonClass" @click="$emit('onOpen')">
                     + Add new AI card
@@ -25,12 +29,14 @@
 </template>
 <script>
 import draggable from "vuedraggable";
+import ListItem from "@/components/ListItem.vue";
 import ModalAdd from "@/components/AddModal"
 export default {
     name: 'CardList',
     components: {
         draggable,
-        ModalAdd
+        ModalAdd,
+        ListItem,
     },
     props: {
         dragbClass: {type: String, required: true, default: 'list-group'},
