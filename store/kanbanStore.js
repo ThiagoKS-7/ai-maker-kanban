@@ -13,7 +13,8 @@ export const useKanbanStore = defineStore('kanban', {
     actions: {
       // não pode arrow function, pq usa 'this' 
       addCard(list,obj) {
-        list.push(obj);
+        list.push({id:this.items, ...obj});
+        console.log(list)
         this.items++
       },
       removeCard(list, obj) {
@@ -26,7 +27,7 @@ export const useKanbanStore = defineStore('kanban', {
       },
     },
     getters: {
-        getList() {
+        getLists() {
             return this.kList;
         }
     }
